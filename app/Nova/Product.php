@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Laravel\Nova\Fields\Currency;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
@@ -49,9 +50,11 @@ class Product extends Resource
 
             Text::make('Name'),
 
-            Text::make('description')->hideFromIndex(),
+            Text::make('Description')->hideFromIndex(),
 
-            Currency::make('price')->format('%.2n'),
+            Currency::make('Price')->format('%.2n'),
+
+            File::make('Attachment')->hideFromIndex(),
         ];
     }
 
