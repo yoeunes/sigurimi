@@ -22,3 +22,9 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'active_at' => $faker->dateTimeBetween('-1 year', 'now'),
     ];
 });
+
+$factory->state(App\Models\User::class, 'inactive', function ($faker) {
+    return [
+        'active_at' => null,
+    ];
+});
