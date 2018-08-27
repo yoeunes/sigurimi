@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Country;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
@@ -64,6 +65,8 @@ class User extends Resource
                 ->updateRules('nullable', 'string', 'min:6'),
 
             Country::make('Country', 'country_code'),
+
+            Date::make('Birthday')->hideFromIndex(),
 
             Boolean::make('Active', 'active_at'),
 

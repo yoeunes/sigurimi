@@ -16,6 +16,7 @@ class CreateDefaultAdminUser extends Migration
             'name' => config('auth.admins.superadmin.name'),
             'email' => config('auth.admins.superadmin.email'),
             'password' => bcrypt(config('auth.admins.superadmin.password')),
+            'birthday' => \Carbon\Carbon::parse('1980-08-03'),
             'active_at' => \Carbon\Carbon::now(),
         ]);
     }

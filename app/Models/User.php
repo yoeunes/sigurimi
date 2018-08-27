@@ -19,6 +19,7 @@ class User extends Authenticatable
         'email',
         'password',
         'country_code',
+        'birthday',
         'active_at',
     ];
 
@@ -31,6 +32,15 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'active_at',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'birthday' => 'datetime:Y-m-d',
     ];
 
     /**

@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('country_code', 2)->nullable()->default('es');
             $table->rememberToken();
+            $table->date('birthday')->nullable();
             $table->timestamps();
             $table->timestamp('active_at')->nullable();
         });

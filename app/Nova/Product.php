@@ -51,7 +51,7 @@ class Product extends Resource
 
             Text::make('description')->hideFromIndex(),
 
-            Currency::make('price'),
+            Currency::make('price')->format('%.2n'),
         ];
     }
 
