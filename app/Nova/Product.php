@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -53,7 +54,7 @@ class Product extends Resource
 
             Image::make('Image')->hideFromIndex(),
 
-            Text::make('Description')->hideFromIndex(),
+            Markdown::make('Description')->hideFromIndex(),
 
             Currency::make('Price')->format('%.2n'),
 

@@ -5,6 +5,7 @@ namespace App\Nova;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Panel;
@@ -51,8 +52,10 @@ class Post extends Resource
     {
         return [
             ID::make()->sortable(),
+
             Text::make('Title')->sortable(),
-            Text::make('Body')->hideFromIndex(),
+
+            Markdown::make('Body')->hideFromIndex(),
 
             new Panel('Additional Info', $this->additionalInfo()),
         ];
