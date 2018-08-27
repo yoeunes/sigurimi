@@ -7,10 +7,10 @@ use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Product extends Resource
@@ -56,7 +56,7 @@ class Product extends Resource
 
             Image::make('Image')->hideFromIndex(),
 
-            Markdown::make('Description')->hideFromIndex(),
+            Textarea::make('Description')->hideFromIndex(),
 
             Select::make('Size')->options([
                 'S' => 'Small',
