@@ -2,9 +2,12 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Panel;
 
 class Post extends Resource
 {
@@ -21,6 +24,13 @@ class Post extends Resource
      * @var string
      */
     public static $title = 'id';
+
+    /**
+     * The relationships that should be eager loaded on index queries.
+     *
+     * @var array
+     */
+    public static $with = ['user'];
 
     /**
      * The columns that should be searched.
@@ -41,6 +51,23 @@ class Post extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Title')->sortable(),
+            Text::make('Body')->hideFromIndex(),
+
+            new Panel('Additional Info', $this->additionalInfo()),
+        ];
+    }
+
+    /**
+     * Get the additional information for the post.
+     *
+     * @return array
+     */
+    protected function additionalInfo()
+    {
+        return [
+            DateTime::make('Created At'),
+            DateTime::make('Updated At')->hideFromIndex(),
         ];
     }
 

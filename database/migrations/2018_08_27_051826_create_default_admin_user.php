@@ -1,8 +1,6 @@
 <?php
 
 use App\Models\User;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateDefaultAdminUser extends Migration
@@ -18,6 +16,7 @@ class CreateDefaultAdminUser extends Migration
             'name' => config('auth.admins.superadmin.name'),
             'email' => config('auth.admins.superadmin.email'),
             'password' => bcrypt(config('auth.admins.superadmin.password')),
+            'active_at' => \Carbon\Carbon::now(),
         ]);
     }
 
