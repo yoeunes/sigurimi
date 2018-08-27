@@ -53,9 +53,23 @@ class User extends Resource
 
             Gravatar::make(),
 
-            Text::make('Name')
+            Text::make('Username', 'name')
                 ->sortable()
                 ->rules('required', 'max:255'),
+
+            Text::make('First Name')
+                ->sortable()
+                ->rules('required', 'max:255')
+                ->hideFromIndex(),
+
+            Text::make('Last Name')
+                ->sortable()
+                ->rules('required', 'max:255')
+                ->hideFromIndex(),
+
+            Text::make('Name', function () {
+                return $this->first_name.' '.$this->last_name;
+            })->onlyOnIndex(),
 
             Text::make('Email')
                 ->sortable()
@@ -72,7 +86,7 @@ class User extends Resource
 
             Date::make('Birthday')->hideFromIndex(),
 
-            Boolean::make('Active', 'active_at')->exceptOnForms(),
+            Boolean::make('Active', 'active_at')->exceptOnForms()->sortable(),
 
             new Panel('Additional Info', $this->addressFields()),
 
@@ -92,7 +106,7 @@ class User extends Resource
             Text::make('City')->hideFromIndex(),
             Text::make('State')->hideFromIndex(),
             Text::make('Postal Code')->hideFromIndex(),
-            Country::make('Country', 'country_code'),
+            Country::make('Country', 'country_code')->sortable(),
             Timezone::make('Timezone')->hideFromIndex(),
         ];
     }

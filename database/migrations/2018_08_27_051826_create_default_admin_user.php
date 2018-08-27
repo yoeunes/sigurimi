@@ -13,7 +13,9 @@ class CreateDefaultAdminUser extends Migration
     public function up()
     {
         User::create([
-            'name'           => config('auth.admins.superadmin.name'),
+            'name'           => config('auth.admins.superadmin.username'),
+            'first_name'     => config('auth.admins.superadmin.first_name'),
+            'last_name'      => config('auth.admins.superadmin.last_name'),
             'email'          => config('auth.admins.superadmin.email'),
             'password'       => bcrypt(config('auth.admins.superadmin.password')),
             'bio'            => 'Superadmin user',

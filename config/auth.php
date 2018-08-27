@@ -101,7 +101,9 @@ return [
 
     'admins' => [
         'superadmin' => [
-            'name'           => env('SUPERADMIN_NAME'),
+            'username'       => env('SUPERADMIN_USERNAME'),
+            'first_name'     => env('SUPERADMIN_FIRST_NAME'),
+            'last_name'      => env('SUPERADMIN_LAST_NAME'),
             'email'          => env('SUPERADMIN_EMAIL'),
             'password'       => env('SUPERADMIN_PASSWORD'),
             'address_line_1' => env('SUPERADMIN_ADDRESS_LINE_1'),
