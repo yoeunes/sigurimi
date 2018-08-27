@@ -101,9 +101,14 @@ return [
 
     'admins' => [
         'superadmin' => [
-            'name'     => env('SUPERADMIN_NAME'),
-            'email'    => env('SUPERADMIN_EMAIL'),
-            'password' => env('SUPERADMIN_PASSWORD'),
+            'name'           => env('SUPERADMIN_NAME'),
+            'email'          => env('SUPERADMIN_EMAIL'),
+            'password'       => env('SUPERADMIN_PASSWORD'),
+            'address_line_1' => env('SUPERADMIN_ADDRESS_LINE_1'),
+            'address_line_2' => env('SUPERADMIN_ADDRESS_LINE_2'),
+            'city'           => env('SUPERADMIN_CITY'),
+            'state'          => env('SUPERADMIN_STATE'),
+            'postal_code'    => env('SUPERADMIN_POSTAL_CODE'),
         ]
     ],
 

@@ -7,9 +7,11 @@ use Laravel\Nova\Fields\Country;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Panel;
 
 class User extends Resource
 {
@@ -64,12 +66,29 @@ class User extends Resource
                 ->creationRules('required', 'string', 'min:6')
                 ->updateRules('nullable', 'string', 'min:6'),
 
-            Country::make('Country', 'country_code'),
-
             Date::make('Birthday')->hideFromIndex(),
 
-            Boolean::make('Active', 'active_at'),
+            Boolean::make('Active', 'active_at')->exceptOnForms(),
 
+            new Panel('Additional Info', $this->addressFields()),
+
+        ];
+    }
+
+    /**
+     * Get the address information for the user.
+     *
+     * @return array
+     */
+    protected function addressFields()
+    {
+        return [
+            Place::make('Address', 'address_line_1')->hideFromIndex(),
+            Text::make('Address Line 2')->hideFromIndex(),
+            Text::make('City')->hideFromIndex(),
+            Text::make('State')->hideFromIndex(),
+            Text::make('Postal Code')->hideFromIndex(),
+            Country::make('Country', 'country_code')->hideFromIndex(),
         ];
     }
 
