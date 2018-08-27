@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Timezone;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Panel;
 
 class User extends Resource
@@ -67,6 +68,8 @@ class User extends Resource
                 ->creationRules('required', 'string', 'min:6')
                 ->updateRules('nullable', 'string', 'min:6'),
 
+            Trix::make('Bio')->hideFromIndex(),
+
             Date::make('Birthday')->hideFromIndex(),
 
             Boolean::make('Active', 'active_at')->exceptOnForms(),
@@ -89,7 +92,7 @@ class User extends Resource
             Text::make('City')->hideFromIndex(),
             Text::make('State')->hideFromIndex(),
             Text::make('Postal Code')->hideFromIndex(),
-            Country::make('Country', 'country_code')->hideFromIndex(),
+            Country::make('Country', 'country_code'),
             Timezone::make('Timezone')->hideFromIndex(),
         ];
     }

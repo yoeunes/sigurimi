@@ -13,16 +13,17 @@ class CreateDefaultAdminUser extends Migration
     public function up()
     {
         User::create([
-            'name' => config('auth.admins.superadmin.name'),
-            'email' => config('auth.admins.superadmin.email'),
-            'password' => bcrypt(config('auth.admins.superadmin.password')),
+            'name'           => config('auth.admins.superadmin.name'),
+            'email'          => config('auth.admins.superadmin.email'),
+            'password'       => bcrypt(config('auth.admins.superadmin.password')),
+            'bio'            => 'Superadmin user',
             'address_line_1' => config('auth.admins.superadmin.address_line_1'),
             'address_line_2' => config('auth.admins.superadmin.address_line_2'),
-            'city' => config('auth.admins.superadmin.city'),
-            'state' => config('auth.admins.superadmin.state'),
-            'postal_code' => config('auth.admins.superadmin.postal_code'),
-            'birthday' => \Carbon\Carbon::parse('1980-08-03'),
-            'active_at' => \Carbon\Carbon::now(),
+            'city'           => config('auth.admins.superadmin.city'),
+            'state'          => config('auth.admins.superadmin.state'),
+            'postal_code'    => config('auth.admins.superadmin.postal_code'),
+            'birthday'       => \Carbon\Carbon::parse('1980-08-03'),
+            'active_at'      => \Carbon\Carbon::now(),
         ]);
     }
 
