@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -57,6 +58,8 @@ class Product extends Resource
             Markdown::make('Description')->hideFromIndex(),
 
             Currency::make('Price')->format('%.2n'),
+
+            Number::make('Stock')->min(0)->max(1000)->step(1),
 
             File::make('Attachment')->hideFromIndex(),
         ];
