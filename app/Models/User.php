@@ -41,4 +41,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    /**
+     * Get the snippets for the given user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function snippets()
+    {
+        return $this->hasMany(Snippet::class);
+    }
 }
