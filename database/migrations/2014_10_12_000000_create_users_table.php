@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('country_code', 2)->nullable()->default('es');
             $table->date('birthday')->nullable();
             $table->rememberToken();
+            $table->string('timezone')->default('Europe/Madrid');
             $table->timestamps();
             $table->timestamp('active_at')->nullable();
         });

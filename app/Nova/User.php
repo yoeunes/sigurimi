@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\Password;
+use Laravel\Nova\Fields\Timezone;
 use Laravel\Nova\Panel;
 
 class User extends Resource
@@ -89,6 +90,7 @@ class User extends Resource
             Text::make('State')->hideFromIndex(),
             Text::make('Postal Code')->hideFromIndex(),
             Country::make('Country', 'country_code')->hideFromIndex(),
+            Timezone::make('Timezone')->hideFromIndex(),
         ];
     }
 

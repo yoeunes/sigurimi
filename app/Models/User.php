@@ -24,6 +24,7 @@ class User extends Authenticatable
         'state',
         'postal_code',
         'country_code',
+        'timezone',
         'birthday',
         'active_at',
     ];

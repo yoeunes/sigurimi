@@ -25,6 +25,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'state' => $faker->state,
         'postal_code' => $faker->postcode,
         'country_code' => $faker->countryCode,
+        'timezone' => $faker->timezone,
         'birthday' => $faker->dateTimeBetween('-70 years', '-14 years'),
         'active_at' => $faker->dateTimeBetween('-1 year', 'now'),
     ];
